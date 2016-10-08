@@ -1,0 +1,21 @@
+{
+  "name": "polyfire-codelab",
+  "homepage": "https://github.com/Twiinlab/polyfire-codelab",
+  "authors": [
+    "dvdchavarri <dvdchavarri@gmail.com>",
+    "ruchavarri <ruchavarri@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "note-app": "polymerlabs/note-app"
+  }
+}
