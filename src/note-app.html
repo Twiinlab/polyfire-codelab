@@ -1,9 +1,23 @@
-<link rel="import" href="bower_components/note-app/common/note-app/na-elements.html">
-<link rel="import" href="bower_components/app-storage/app-indexeddb-mirror/app-indexeddb-mirror.html">
-<link rel="import" href="bower_components/polymerfire/polymerfire.html">
+<link rel="import" href="../bower_components/platinum-sw/platinum-sw-elements.html">
+<link rel="import" href="../bower_components/polymerfire/firebase-app.html">
+<link rel="import" href="note-app/na-elements.html">
+<link rel="import" href="../bower_components/app-storage/app-indexeddb-mirror/app-indexeddb-mirror.html">
+<link rel="import" href="../bower_components/polymerfire/polymerfire.html">
 
 <dom-module id="note-app">
   <template>
+    <!-- index.html modules imported -->
+    <platinum-sw-register auto-register skip-waiting clients-claim reload-on-install href="/sw-import.js">
+    <platinum-sw-cache default-cache-strategy="networkFirst">
+        </platinum-sw-cache>
+    </platinum-sw-register>
+    <firebase-app
+        name="notes"
+        api-key="AIzaSyAlcpmFQPmGXLjLc0WOD7vZeeLHSpcdsAY"
+        auth-domain="polyfire-codelab.firebaseapp.com"
+        database-url="https://polyfire-codelab.firebaseio.com">
+    </firebase-app>
+    <!-- -->
     <style include="note-app-shared-styles"></style>
     <na-toolbar
         signed-in="[[signedIn]]"
@@ -73,11 +87,11 @@
             },
 
             get notesPath() {
-                return `/notes/${this.user.uid}`;
+            return '/notes/' + this.user.uid;
             },
 
             toEditableId: function(noteId) {
-                return `${this.notesPath}/${noteId}`;
+            return this.notesPath + '/' + noteId;
             },
             
             get isEditable() {

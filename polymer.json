@@ -1,0 +1,16 @@
+{
+  "entrypoint": "index.html",
+  "shell": "src/note-app.html",
+  "fragments": [],
+  "sourceGlobs": [
+   "src/**/*",
+   "images/**/*",
+   "bower.json"
+  ],
+  "includeDependencies": [
+    "bower_components/webcomponentsjs/webcomponents-lite.js",
+    "bower_components/web-animations-js/web-animations.min.js",
+    "bower_components/platinum-sw/service-worker.js",
+    "bower_components/app-storage/app-indexeddb-mirror/app-indexeddb-mirror-worker.js"
+  ]
+}
